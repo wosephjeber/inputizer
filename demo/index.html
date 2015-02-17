@@ -17,12 +17,22 @@
       }
       
       .container {
-        padding: 80px;
         text-align: center;
+        height: 700px;
+        height: 100vh;
       }
       
       .container p {
         font-size: 32px;
+        margin: 0;
+      }
+      
+      .valign {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
       }
       
       
@@ -30,9 +40,10 @@
     
   </head>
   <body>
-    
     <div class="container">
-      <p>This looks just like <span class="inputize-me">any</span> other sentence.</p>
+      <div class="valign">
+        <p>This looks just like <span class="inputize-me">any</span> other sentence.</p>
+      </div>
     </div>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
