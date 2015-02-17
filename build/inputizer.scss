@@ -25,6 +25,10 @@
   -moz-transition: opacity .3s;
 }
 
+.inputized br {
+  display: none;
+}
+
 .inputized * {
   display: inline;
 }
