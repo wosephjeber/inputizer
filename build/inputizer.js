@@ -18,14 +18,16 @@
   $.fn.inputizer = function(onBlur) {
     return this.each(function() {
       
-      console.log(typeof onBlur);
       onBlur = (typeof onBlur === 'function') ? onBlur : function() {};
       
-      $(this).attr('contenteditable', true).addClass('inputized');
+      var _this = this;
+      var $this = $(this);
       
-      $(this).bind('blur', function() {onBlur.call(this)});
+      $this.attr('contenteditable', true).addClass('inputized');
       
-      $(this).keypress(function(e){
+      $this.bind('blur', function() {onBlur.call(_this, $this.html())});
+      
+      $this.keypress(function(e){
         var regex = /[^0-9\,]/;
         var k = e.which;
         var keychar = String.fromCharCode(k);
@@ -35,8 +37,8 @@
         }
       });
     
-      $(this).on("click focus", function(){
-        $(this).selectText();
+      $this.on("click focus", function(){
+        $this.selectText();
       })
     })
   };

@@ -38,8 +38,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="../build/inputizer.js"></script>
     <script>
-      $('.inputize-me').inputizer(function() {
-        console.log(this);
+      $('.inputize-me').inputizer(function(value) {
+        console.log(value);
       });
     </script>
   </body>
