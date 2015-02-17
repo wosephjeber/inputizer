@@ -1,9 +1,20 @@
 (function ( $ ) {
- 
-    $.fn.inputizer = function() {
-        
-    };
- 
+  $.fn.selectText = function(){
+     var doc = document;
+     var element = this[0];
+     if (doc.body.createTextRange) {
+         var range = document.body.createTextRange();
+         range.moveToElementText(element);
+         range.select();
+     } else if (window.getSelection) {
+         var selection = window.getSelection();        
+         var range = document.createRange();
+         range.selectNodeContents(element);
+         selection.removeAllRanges();
+         selection.addRange(range);
+     }
+  };
+  
   $.fn.inputizer = function(onBlur) {
     return this.each(function() {
       
@@ -14,6 +25,9 @@
       
       $(this).bind('blur', function() {onBlur.call(this)});
       
+      $(this).on("click focus", function(){
+        $(this).selectText();
+      })
     })
   };
 }( jQuery ));
