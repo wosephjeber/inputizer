@@ -25,6 +25,16 @@
       
       $(this).bind('blur', function() {onBlur.call(this)});
       
+      $(this).keypress(function(e){
+        var regex = /[^0-9\,]/;
+        var k = e.which;
+        var keychar = String.fromCharCode(k);
+        if (k == 13) {
+          $(this).trigger('blur');
+          return false;
+        }
+      });
+    
       $(this).on("click focus", function(){
         $(this).selectText();
       })
