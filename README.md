@@ -1,7 +1,7 @@
 Inputizer
 =============
 
-A simple, experimental jQuery plugin to turn any div or span into a pseudo text input.
+A simple, experimental jQuery plugin to turn any div or span into a pseudo text input. [View a demo here](http://wosephjeber.github.io/inputizer).
 
 ###Usage
 
